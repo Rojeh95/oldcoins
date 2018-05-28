@@ -1,0 +1,36 @@
+<%= form_with(model: city, local: true) do |form| %>
+  <% if city.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(city.errors.count, "error") %> prohibited this city from being saved:</h2>
+
+      <ul>
+      <% city.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :c_name %>
+    <%= form.text_field :c_name, id: :city_c_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ruler_id %>
+    <%= form.text_field :ruler_id, id: :city_ruler_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dynasty_id %>
+    <%= form.text_field :dynasty_id, id: :city_dynasty_id %>
+  </div>
+  <div class="field">
+    <%= form.label :c_image %>
+    <%= form.file_field :c_image %>
+   </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

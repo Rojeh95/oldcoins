@@ -1,0 +1,35 @@
+
+<% @ruler.cities.each do |city| %>
+   <div class="col-sm-4">
+      <div class="container"> 
+       <%=link_to image_tag("#{city.c_image}".html_safe ,width: 350, height:350),city%>
+       <h2><%= link_to city.c_name, @city %>   </h2>
+       <p>
+        <%= link_to 'Edit', edit_city_url(city)%> |
+        <%= link_to 'Back', dynasties_probe_path(city.dynasty_id) %>
+       </p>
+        </div>
+     
+    </div>
+
+<%end%>
+
+<div class="col-sm-2">
+<div class="container"> 
+<h2>Add a city:</h2>
+<%= form_for([@ruler, @ruler.cities.build]) do |f| %>
+  <p>
+    <%= f.label :City %><br>
+    <%= f.text_field :c_name %>
+  </p> 
+  <p>
+    <%= f.label :Image %>
+    <%= f.file_field :c_image %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+</div>
+</div>
+

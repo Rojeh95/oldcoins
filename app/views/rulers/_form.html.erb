@@ -1,0 +1,31 @@
+<%= form_with(model: ruler, local: true) do |form| %>
+  <% if ruler.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ruler.errors.count, "error") %> prohibited this ruler from being saved:</h2>
+
+      <ul>
+      <% ruler.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :ru_name %>
+    <%= form.text_field :ru_name, id: :ruler_ru_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dynasty_id %>
+    <%= form.text_field :dynasty_id, id: :ruler_dynasty_id %>
+  </div>
+    <div class="field">
+    <%= form.label :ru_image %>
+    <%= form.file_field :ru_image %>
+   </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

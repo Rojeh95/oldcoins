@@ -1,0 +1,42 @@
+<p>
+<h2> Herrscher für die  
+<%= @dynasty.dy_name %>
+</h2>
+</p>
+
+<% @dynasty.rulers.each do |ruler| %>
+      <div class="col-sm-4">
+        <div class="container"> 
+       <%=link_to image_tag("#{ruler.ru_image}".html_safe ,width: 350, height:350),ruler_url(ruler.id)%>
+       <h2><%= link_to ruler.ru_name, @dynasty %>   </h2>
+       <p>
+        <%= link_to 'Edit', edit_ruler_url(ruler)%> |
+        <%= link_to 'Back', root_path %> |
+        <%= link_to 'show', @dynasty %>
+       </p> 
+        </div>
+     
+    </div>
+</p>
+<% end %>
+<br>
+<br>
+ <div class="col-sm-2">
+<div class="container"> 
+<h2>Add a Ruler:</h2>
+<%= form_for([@dynasty, @dynasty.rulers.build]) do |f| %>
+  <p>
+    <%= f.label :Ruler %><br>
+    <%= f.text_field :ru_name %>
+  </p> 
+  <p>
+    <%= f.label :Image %>
+    <%= f.file_field :ru_image %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+</div>
+</div>
+

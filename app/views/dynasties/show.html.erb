@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Dynasty:</strong>
+  <%= @dynasty.dy_name %> <br>
+   <strong>ID:</strong>
+  <%= @dynasty.id %> <br>
+  <strong>Dynasty Image:</strong>
+  <%= %></td>
+  <%=link_to image_tag("#{@dynasty.dy_image}".html_safe ,width: 200, height:150),:controller => 'dynasties', :action => 'probe' %>
+  
+</p>
+<p>
+
+ 
+
+<%= link_to 'Destroy', @dynasty, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Edit', edit_dynasty_path %> | 
+<%= link_to 'Back', dynasties_probe_path %>

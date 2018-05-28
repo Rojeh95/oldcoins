@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Rulers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ru name</th>
+      <th>Dynasty</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rulers.each do |ruler| %>
+      <tr>
+        <td><%= ruler.ru_name %></td>
+        <td><%= ruler.dynasty %></td>
+        <td><%= link_to 'Show', ruler %></td>
+        <td><%= link_to 'Edit', edit_ruler_path(ruler) %></td>
+        <td><%= link_to 'Destroy', ruler, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ruler', new_ruler_path %>
