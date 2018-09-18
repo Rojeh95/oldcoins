@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  c_name: MyString
+  ruler: one
+  dynasty: one
+
+two:
+  c_name: MyString
+  ruler: two
+  dynasty: two

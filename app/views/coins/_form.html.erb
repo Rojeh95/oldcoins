@@ -1,0 +1,46 @@
+<%= form_with(model: coin, local: true) do |form| %>
+  <% if coin.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(coin.errors.count, "error") %> prohibited this coin from being saved:</h2>
+
+      <ul>
+      <% coin.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label t("coins.titel") %>
+    <%= form.text_field :co_titel, id: :coin_co_titel %>
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field :ruler_id, id: :coin_ruler_id %>
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field :dynasty_id, id: :coin_dynasty_id %>
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field :city_id, id: :coin_city_id %>
+  </div>
+   <div class="field">
+    <%= form.hidden_field :year_id, id: :coin_year_id %>
+  </div>
+
+    <div class="field">
+    <%= form.label t("cities.coin_vorderseite") %>
+    <%= form.file_field :co_image_vs %>
+   </div>
+       <div class="field">
+    <%= form.label t("cities.coin_rückseite")%>
+    <%= form.file_field :co_image_rs %>
+   </div>
+
+  <div class="actions">
+       <%= form.submit t("dynasties.create")%>
+  </div>
+<% end %>

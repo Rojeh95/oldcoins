@@ -25,11 +25,10 @@ class CitiesController < ApplicationController
   # POST /cities
   # POST /cities.json
   def create
-   
-      # Create and save comment
+
+    @ruler = Ruler.find(params[:city][:ruler_id])
  
-    @city = dynaruler.cities.build(city_params)
-    
+    @city = @ruler.cities.create(city_params)
 
 
     respond_to do |format|
@@ -48,7 +47,7 @@ class CitiesController < ApplicationController
   def update
     respond_to do |format|
       if @city.update(city_params)
-        format.html { redirect_to @city, notice: 'City was successfully updated.' }
+        format.html { redirect_to ruler_url(@city.ruler_id), notice: 'City was successfully updated.' }
         format.json { render :show, status: :ok, location: @city }
       else
         format.html { render :edit }
@@ -62,21 +61,11 @@ class CitiesController < ApplicationController
   def destroy
     @city.destroy
     respond_to do |format|
-      format.html { redirect_to cities_url, notice: 'City was successfully destroyed.' }
+      format.html { redirect_to ruler_url(@city.ruler_id), notice: 'City was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
-  protected
-
-  def dynaruler
-    @dynaruler &&=
-      if params[:ruler_id]
-        Ruler.find(params[:ruler_id])
-      elsif params[:dynasty_id]
-        Dynasty.find(params[:dynasty_id])
-      end
-  end
 
   private
 

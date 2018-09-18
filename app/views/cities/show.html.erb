@@ -1,20 +1,50 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <span style="float:right;"><h3><%= link_to t("dynasties.back"), ruler_url(@city.ruler_id) %></h3></span>
+  <span style="float:left;"> 
+   <h3><%= t"years.index"%> <%= @city.c_name %> </h3>
+  </span>
+</div>
+<% @city.years.each do |year| %>
+<div class="pics">
+    <figure>
+    <%=link_to image_tag("#{year.ye_image}".html_safe ,width: 200, height:200),year%>
+    <figcaption><h4><%= link_to year.period, year %></h4></figcaption>
+     <%= link_to t("dynasties.edit"), edit_year_url(year)%> |
+     <%= link_to t("dynasties.back"), ruler_url(year.ruler_id) %> |
+     <%= link_to t("dynasties.del"), year, method: :delete, data: { confirm: 'Are you sure?' } %> 
+    </figure>
+</div>
 
-<p>
-  <strong>C name:</strong>
-  <%= @city.c_name %>
-</p>
 
-<p>
-  <strong>Ruler:</strong>
-  <%= @city.ruler_id %>
-</p>
 
-<p>
-  <strong>Dynasty:</strong>
-  <%= @city.dynasty_id %>
-</p>
-<%= link_to 'Edit', edit_city_path(@city) %> |
-<%= link_to 'Back', cities_path %>
 
+<%end%>
+
+<div class="add">
+<div class="container"> 
+<h2><%= t"cities.year_add"%></h2>
+<%= form_for([@city, @city.years.build]) do |f| %>
+  <p>
+    <%= f.label t("cities.year_name") %><br>
+    <%= f.text_area :period %>
+  </p> 
+  <p>
+    <%= f.label t("dynasties.image") %>
+    <%= f.file_field :ye_image %>
+  </p>
+  <p>
+    <%= f.hidden_field :dynasty_id ,value: @city.dynasty_id%>
+  </p>
+  <p>
+    <%= f.hidden_field :ruler_id ,value: @city.ruler_id%>
+  </p>
+  <p>
+    <%= f.hidden_field :city_id ,value: @city.id%>
+  </p>
+  <p>
+    <%= f.submit t("cities.year_add") %>
+  </p>
+<% end %>
+</div>
+</div>
 

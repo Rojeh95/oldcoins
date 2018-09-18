@@ -1,0 +1,33 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+div.panel-body {
+    padding: 30px;
+}
+
+div.flied {
+
+	padding: 20px
+}
+#newfound {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#newfound td, #newfound th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#newfound tr:nth-child(even){background-color: #f2f2f2;}
+
+#newfound tr:hover {background-color: #ddd;}
+
+#newfound th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #9e4131;
+    color: white;

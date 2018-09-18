@@ -1,0 +1,87 @@
+ar:
+  dynasties:
+      dynasty: "السلالة"
+      new: "سلالة جديدة"
+      all: "جميع السلالات"
+      back: "عوده"
+      show: "معلومات"
+      del: "حذف"
+      name: "الاسم"
+      image: "صورة"
+      create: "اتمام"
+      edit: "تعديل"
+      attach: "اختر ملف"
+      ruler_index: "خلفاء سلالة"
+      ruler_add: "أَضِف خَليفة"
+      rulers_name: "اسم الخليفة"
+      home: "الرئيسية"
+      delete: "حذف" 
+      newfound: "اكتشاف عمله جديده"
+      dynasty_edit: "تعديل السلالة"
+      newfound: "اكتشاف عملة جديده"
+
+
+   
+  rulers:
+    ruler: "الخليفة"
+    new: "خَليفة جديد"
+    index: "مدن الخليفة "
+    city_add: "أَضِف مَدينة"
+    ruler_edit: "تعديل الخليفة"
+
+  newfounds:
+    add: "اضف اكتشاف جديد"
+    label: "عملات مكتشفه"
+    infos: "اظهر"
+    weight: "الوزن"
+    locality: "المكان"
+    date: "التاريخ"
+    copyinfo: "استخدم المعلومات لاكتشاف جديد"
+    edit: "تعديل الاكتشاف"
+
+  cities:
+    save: "احفظ"
+    index: "عملات قديمه في "
+    coin_add: "أَضِف عُملة"
+    coin_name: "العملة"
+    coin_vorderseite: "صورة الوجه"
+    coin_rückseite: "صورة الخلف"
+    year_add: "اضف الفتره الزمنية"
+    city_edit: "تعديل دار الضرب"
+    city_name: "دار لاضرب"
+    year_name: "الفتره الزمنية"
+
+  years:
+      index: "ألفترة الزمنية في"
+      edit: "تعديل الفتره الزمانية"
+
+
+  coins:  
+      infos: "معلومات عن العملة"
+      edit: "تعديل العملة"
+      titel: "عنوان"
+      new: "اضف عُملة قديمه"
+
+
+  errors:
+    format: "%{message}"
+  activerecord:
+    errors:
+      models:
+        ruler:
+          attributes:
+            ru_name:
+              blank: "اضف رجاءا اسم للخليفة"
+      newfound:
+          attributes:
+            nf_image_rs:
+              blank: "اضف رجاءا صوره خلفية"
+            nf_image_vs:  
+              blank: "اضف رجاءا صوره امامية"
+
+
+  date:
+    order:
+      - :day
+      - :month
+      - :year

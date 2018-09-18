@@ -1,10 +1,14 @@
 class DynastiesController < ApplicationController
-  before_action :set_dynasty, only: [:show, :probe, :cities,:edit, :update, :destroy]
+  
+  
+  before_action :set_dynasty, only: [:show, :probe, :cities,:edit, :update, :destroy ]
+
 
   # GET /dynasties
   # GET /dynasties.json
+
   def index
-    @dynasties = Dynasty.all
+    @dynasties = Dynasty.order(:id)
   end
 
   # GET /dynasties/1
@@ -25,9 +29,6 @@ class DynastiesController < ApplicationController
   def edit
   end
 
-  def cities
-    #@dynasties_url = Ruler.all
-  end
 
   # POST /dynasties
   # POST /dynasties.json
@@ -36,7 +37,7 @@ class DynastiesController < ApplicationController
 
     respond_to do |format|
       if @dynasty.save
-        format.html { redirect_to @dynasty, notice: 'Dynasty was successfully created.' }
+        format.html { redirect_to dynasties_url, notice: 'Dynasty was successfully created.' }
         format.json { render :show, status: :created, location: @dynasty }
       else
         format.html { render :new }

@@ -1,0 +1,8 @@
+<div class="container">
+<h1><%= t("coins.edit")%></h1>
+
+<%= render 'form', coin: @coin %>
+
+<%= link_to 'Show', @coin %> |
+<%= link_to t("dynasties.back"), year_url(@coin.year_id) %>
+</div>

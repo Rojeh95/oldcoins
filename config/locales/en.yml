@@ -1,0 +1,8 @@
+en:
+  activerecord:
+    errors:
+      models:
+        ruler:
+          attributes:
+            ru_name:
+              blank: 'Must include uppercase & number'

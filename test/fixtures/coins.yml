@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  co_titel: MyString
+  ruler: one
+  dynasty: one
+  city: one
+
+two:
+  co_titel: MyString
+  ruler: two
+  dynasty: two
+  city: two

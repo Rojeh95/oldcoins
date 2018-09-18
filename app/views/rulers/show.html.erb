@@ -1,33 +1,44 @@
-
+<div class="container">
+  <span style="float:right;"><h3><%= link_to t("dynasties.back"), dynasties_probe_path(@ruler.dynasty_id) %></h3></span>
+  <span style="float:left;"> 
+   <h3><%= t"rulers.index"%> <%= @ruler.ru_name %> </h3>
+  </span>
+</div>
 <% @ruler.cities.each do |city| %>
-   <div class="col-sm-4">
-      <div class="container"> 
-       <%=link_to image_tag("#{city.c_image}".html_safe ,width: 350, height:350),city%>
-       <h2><%= link_to city.c_name, @city %>   </h2>
-       <p>
-        <%= link_to 'Edit', edit_city_url(city)%> |
-        <%= link_to 'Back', dynasties_probe_path(city.dynasty_id) %>
-       </p>
-        </div>
-     
-    </div>
+<div class="pics">
+    <figure>
+    <%=link_to image_tag("#{city.c_image}".html_safe ,width: 200, height:200),city%>
+    <figcaption><h3><%= link_to city.c_name, @city %> </h3></figcaption>
+      <%= link_to t("dynasties.edit"), edit_city_url(city)%> |
+      <%= link_to t("dynasties.back"), dynasties_probe_path(city.dynasty_id) %>|
+      <%= link_to t("dynasties.del"), city, method: :delete, data: { confirm: 'Are you sure?' } %> 
+    </figure>
+</div>
+
+
 
 <%end%>
 
-<div class="col-sm-2">
+<div class="add">
 <div class="container"> 
-<h2>Add a city:</h2>
+<h2><%= t"rulers.city_add"%></h2>
 <%= form_for([@ruler, @ruler.cities.build]) do |f| %>
   <p>
-    <%= f.label :City %><br>
+    <%= f.label t("dynasties.name") %><br>
     <%= f.text_field :c_name %>
   </p> 
   <p>
-    <%= f.label :Image %>
+    <%= f.label t("dynasties.image") %>
     <%= f.file_field :c_image %>
   </p>
   <p>
-    <%= f.submit %>
+    <%= f.hidden_field :ruler_id ,value: @ruler.id%>
+  </p>
+  <p>
+    <%= f.hidden_field :dynasty_id ,value: @ruler.dynasty_id%>
+  </p>
+  <p>
+    <%= f.submit t("rulers.city_add") %>
   </p>
 <% end %>
 </div>

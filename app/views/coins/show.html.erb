@@ -1,0 +1,28 @@
+<div class="container">
+<h1> <%= link_to t("newfounds.copyinfo"), new_newfound_path(dynasty: @dynasty.dy_name,ruler: @ruler.ru_name, city: @city.c_name , year: @year.period) %></h1>
+<h2><%= t("coins.infos")%></h2>
+
+  
+<p>
+  <strong><%= t("dynasties.dynasty")%>: </strong>
+  <%= @dynasty.dy_name%>
+</p>
+
+<p>
+  <strong><%= t("rulers.ruler")%>: </strong>
+  <%= @ruler.ru_name%>
+</p>
+
+
+<p>
+  <strong><%= t("cities.city_name")%>: </strong>
+  <%= @city.c_name %>
+</p>
+<p>
+  <strong><%= t("cities.year_name")%>: </strong>
+  <%= @year.period %>
+</p>
+
+
+<%= link_to t("dynasties.back"), @year%>
+</div>

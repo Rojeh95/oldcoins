@@ -1,6 +1,9 @@
-<h1>New Dynasty</h1>
+<div class="container">
+<h1><%= t "dynasties.new"%></h1>
+
 
 <%= render 'form', dynasty: @dynasty %>
 
 
-<%= link_to 'Back', dynasties_path %>
+<%= link_to t("dynasties.back"), dynasties_path %>
+</div>

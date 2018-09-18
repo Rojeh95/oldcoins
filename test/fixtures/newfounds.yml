@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dynasty: MyString
+  ruler: MyString
+  city: MyString
+  year: MyString
+  weight: 1.5
+  locality: MyString
+  date: 2018-06-23
+
+two:
+  dynasty: MyString
+  ruler: MyString
+  city: MyString
+  year: MyString
+  weight: 1.5
+  locality: MyString
+  date: 2018-06-23

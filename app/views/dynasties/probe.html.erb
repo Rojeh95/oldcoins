@@ -1,40 +1,42 @@
-<p>
-<h2> Herrscher für die  
-<%= @dynasty.dy_name %>
-</h2>
-</p>
+
+<div class="container">
+  <span style="float:right;"><h3><%= link_to t("dynasties.back"), root_path %></h3></span>
+  <span style="float:left;"> 
+   <h3><%= t"dynasties.ruler_index"%> <%= @dynasty.dy_name %> </h3>
+  </span>
+</div>
+</br>
+
 
 <% @dynasty.rulers.each do |ruler| %>
-      <div class="col-sm-4">
-        <div class="container"> 
-       <%=link_to image_tag("#{ruler.ru_image}".html_safe ,width: 350, height:350),ruler_url(ruler.id)%>
-       <h2><%= link_to ruler.ru_name, @dynasty %>   </h2>
-       <p>
-        <%= link_to 'Edit', edit_ruler_url(ruler)%> |
-        <%= link_to 'Back', root_path %> |
-        <%= link_to 'show', @dynasty %>
-       </p> 
-        </div>
-     
-    </div>
-</p>
+<div class="pics">
+    <figure>
+    <%=link_to image_tag("#{ruler.ru_image}".html_safe ,width: 200, height:200),ruler_url(ruler.id)%>
+    <figcaption><h4><%= link_to ruler.ru_name, ruler_url(ruler.id) %></h4></figcaption>
+     <%= link_to t("dynasties.edit"), edit_ruler_url(ruler)%> |
+     <%= link_to t("dynasties.back"), root_path %> |
+     <%= link_to t("dynasties.del"), ruler, method: :delete, data: { confirm: 'Are you sure?' } %> 
+    </figure>
+</div>
+
 <% end %>
 <br>
 <br>
- <div class="col-sm-2">
+<div class="add">
 <div class="container"> 
-<h2>Add a Ruler:</h2>
+<h2><%= t"dynasties.ruler_add"%> </h2>
 <%= form_for([@dynasty, @dynasty.rulers.build]) do |f| %>
   <p>
-    <%= f.label :Ruler %><br>
-    <%= f.text_field :ru_name %>
+    <%= f.label t("dynasties.rulers_name") %><br>
+    <%= f.text_area :ru_name %>
   </p> 
   <p>
-    <%= f.label :Image %>
+    <%= f.label t("dynasties.image") %>
     <%= f.file_field :ru_image %>
   </p>
+    <%= f.hidden_field :dynasty_id ,value: @dynasty.id%>
   <p>
-    <%= f.submit %>
+    <%= f.submit t("dynasties.ruler_add") %>
   </p>
 <% end %>
 </div>

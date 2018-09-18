@@ -1,0 +1,62 @@
+
+ <div class="container">
+  <span style="float:right;"><h3><%= link_to t("dynasties.back"), city_url(@year.city_id) %> </h3></span>
+  <span style="float:left;"> 
+   <h3><%= t"cities.index"%> <%= @year.period %> </h3>
+  </span>
+</div>
+
+
+
+<% @year.coins.each do |coin| %>
+  <div class="pics-double">
+    <figure>
+       <%=link_to image_tag("#{coin.co_image_vs}".html_safe ,width: 200, height:200),coin%>
+       <%=link_to image_tag("#{coin.co_image_rs}".html_safe ,width: 200, height:200),coin%>
+    <figcaption><h4><%= link_to coin.co_titel , coin %>  </h4></figcaption>
+       <p>
+        <%= link_to t("dynasties.edit"), edit_coin_url(coin)%> |
+        <%= link_to t("dynasties.back"), city_url(coin.city_id) %> |
+        <%= link_to t("dynasties.del"), coin , method: :delete, data: { confirm: 'Are you sure?' } %> |
+       </p>
+    </figure>
+  </div>
+
+
+<%end%>
+</br>
+
+<div class="add">
+<div class="container"> 
+<h3><%= t("coins.new") %></h3>
+<%= form_for([@year, @year.coins.build]) do |f| %>
+  <p>
+    <%= f.label t("cities.coin_name") %><br>
+    <%= f.text_field :co_titel %>
+  </p> 
+  <p>
+    <%= f.label t("cities.coin_vorderseite")%>
+    <%= f.file_field :co_image_vs %>
+  </p>
+    <p>
+    <%= f.label t("cities.coin_rückseite") %>
+    <%= f.file_field :co_image_rs %>
+  </p>
+  <p>
+    <%= f.hidden_field :dynasty_id ,value: @year.dynasty_id%>
+  </p>
+   <p>
+    <%= f.hidden_field :ruler_id ,value: @year.ruler_id%>
+  </p>
+   <p>
+    <%= f.hidden_field :city_id ,value: @year.city_id%>
+  </p> 
+   <p>
+    <%= f.hidden_field :year_id ,value: @year.id%>
+  </p>
+  <p>
+    <%= f.submit t("cities.coin_add") %>
+  </p>
+<% end %>
+</div>
+</div>

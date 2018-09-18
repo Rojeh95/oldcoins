@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Dynasty:</strong>
+  <%= @newfound.dynasty %>
+</p>
+
+<p>
+  <strong>Ruler:</strong>
+  <%= @newfound.ruler %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @newfound.city %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @newfound.year %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @newfound.weight %>
+</p>
+
+<p>
+  <strong>Locality:</strong>
+  <%= @newfound.locality %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @newfound.date %>
+</p>
+<p>
+  <strong>image_vorderseite:</strong>
+  <%= image_tag("#{@newfound.nf_image_vs}".html_safe ,width: 200, height:200) %>
+</p>
+<p>
+  <strong>image_rückseite:</strong>
+  <%= image_tag("#{@newfound.nf_image_rs}".html_safe ,width: 200, height:200) %>
+</p>
+<%= link_to 'Edit', edit_newfound_path(@newfound) %> |
+<%= link_to 'Back', newfounds_path %>

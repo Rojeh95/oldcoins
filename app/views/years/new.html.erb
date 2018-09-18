@@ -1,0 +1,8 @@
+<div class="container">
+<h1><%=t("cities.year_add") %></h1>
+
+<%= render 'form', year: @year %>
+
+<%= link_to t("dynasties.back"), city_url(@year.city_id) %>
+
+</div>

@@ -1,5 +1,8 @@
-<h1>New Ruler</h1>
+<div class="container">
+<h1><%= t("rulers.new") %></h1>
 
-<%= render 'form', ruler: @ruler %>
+<%= render 'form', ruler: @ruler%>
 
-<%= link_to 'Back', rulers_path %>
+<%= link_to t("dynasties.back"), dynasties_probe_path(@ruler.dynasty_id) %>
+
+</div>

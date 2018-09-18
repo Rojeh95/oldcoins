@@ -1,0 +1,60 @@
+
+
+<%= form_for(Newfound.new)  do |f| %>
+  <% if @newfound.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@newfound.errors.count, "error") %> prohibited this newfound from being saved:</h2>
+
+      <ul>
+      <% @newfound.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="container"> 
+  
+<h3><%= t("cities.coin_add") %></h3>
+  <p>
+    <%= f.label t("cities.coin_vorderseite")%>
+    <%= f.file_field :nf_image_rs %>
+  </p>
+    <p>
+    <%= f.label t("cities.coin_rückseite") %>
+    <%= f.file_field :nf_image_vs %>
+  </p>
+  <p>
+    <%= f.label t("dynasties.dynasty")%>
+    <%= f.text_field :dynasty ,value: @dynasty%>
+  </p>
+   <p>
+    <%= f.label t("rulers.ruler")%>
+    <%= f.text_field :ruler ,value: @ruler%>
+  </p>
+   <p>
+    <%= f.label t("cities.city_name")%>
+    <%= f.text_field :city ,value: @city%>
+  </p> 
+   <p>
+    <%= f.label t("cities.year_name")%>
+    <%= f.text_field :year ,value: @year%>
+  </p>
+   <p>
+    <%= f.label t("newfounds.weight")%>
+    <%= f.number_field :weight ,step: 0.01 ,min: 0%>
+  </p>
+  <p>
+    <%= f.label t("newfounds.date")%>
+    <%= f.date_select :date ,start_year: 1200 ,end_year: Date.current.year ,:include_blank => true, :default => nil%>
+  </p>
+   <p>
+    <%= f.label t("newfounds.locality")%>
+    <%= f.text_field :locality %>
+  </p>
+  <p>
+    <%= f.submit t("cities.coin_add") %>
+  </p>
+<% end %>
+<%= link_to t("dynasties.back"), newfounds_path %>
+</div>
+</div> 

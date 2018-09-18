@@ -1,0 +1,81 @@
+de:
+  dynasties:
+      dynasty: "Dynasty"
+      new: "Neue dynasty"
+      all: "Alle Dynstien"
+      back: "zurück"  
+      del: "löschen"
+      show: "Informationen"
+      name: "name"
+      image: "Bild"
+      create: "Fertig"
+      edit: "bearbeiten"
+      attach: "Datei auswählen"
+      ruler_index: "Herrscher für die"
+      ruler_add: "Herrscher einfügen"
+      rulers_name: "Name "
+      dynasty_edit: "Dynasty bearbeiten"
+      newfound: "Neuer Fundmünzen"
+
+  rulers:
+    ruler: "Herrscher"
+    new: "Neue Herrscher"
+    index: "Münzstätte für den Herrscher"
+    city_add: "Münzstätte einfügen"
+    ruler_edit: "Herrscher bearbeiten "
+
+  newfounds:
+    add: "Neue Fundmünze einfügen"
+    label: "Fundmünzen"
+    infos: "anzigen"
+    weight: "Gewicht"
+    locality: "Fundort"
+    date: "Datum"
+    copyinfo: "Informationen zu Fundmünzen übernehmen  "
+    edit: "Neuer Fund bearbeiten"
+
+  cities:
+    save: "speichern"
+    index: "Alte Münzen in "
+    coin_add: "Fundmünzen einfügen"
+    coin_name: "Münzennamen"
+    coin_vorderseite: "Vorderseite"
+    coin_rückseite: "Rückseite"
+    year_add: "Zeitspanne einfügen"
+    city_edit: "Münzstätte bearbeiten"
+    city_name: "Münzstätte"
+    year_name: "Zeitspanne"
+
+  years: 
+      index: "Zeitspanne in"
+      edit: "Zeitspanne bearbeiten"
+
+
+  coins:  
+      infos: "Informationen über die Münze"
+      edit: "Münze bearbeiten"
+      titel: "Titel "
+      new: "Alte Münze einfügen"
+
+
+  errors:
+    format: "%{message}"
+  activerecord:
+    errors:
+      models:
+        ruler:
+          attributes:
+            ru_name:
+              blank: "Der Herrscher Name darf nicht leer sein"
+        newfound:
+          attributes:
+            nf_image_rs:
+               blank: "Bitte fügen Sie ein rückseitiges Bild ein"
+            nf_image_vs:  
+              blank: "Bitte fügen Sie ein vorderseitiges Bild ein"
+
+  date:
+    order:
+      - :day
+      - :month
+      - :year

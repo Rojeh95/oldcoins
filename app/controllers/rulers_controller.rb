@@ -1,19 +1,21 @@
 class RulersController < ApplicationController
-  before_action :set_ruler, only: [:show, :edit, :update, :destroy]
+  before_action :set_ruler, only: [ :show, :edit, :update, :destroy]
 
   # GET /rulers
   # GET /rulers.json
   def index
-    @rulers = Ruler.all
+    @rulers = Ruler.order(:ru_name)
   end
 
   # GET /rulers/1
   # GET /rulers/1.json
   def show
+    @rulers= Ruler.order(:ru_name)
   end
 
   # GET /rulers/new
   def new
+    
     @ruler = Ruler.new
   end
 
@@ -24,9 +26,8 @@ class RulersController < ApplicationController
   # POST /rulers
   # POST /rulers.json
   def create
-    @dynasty = Dynasty.find(params[:dynasty_id])
- 
-      # Create and save comment
+    
+    @dynasty = Dynasty.find(params[:ruler][:dynasty_id])
  
     @ruler = @dynasty.rulers.create(ruler_params)
 
@@ -47,7 +48,7 @@ class RulersController < ApplicationController
   def update
     respond_to do |format|
       if @ruler.update(ruler_params)
-        format.html { redirect_to @ruler, notice: 'Ruler was successfully updated.' }
+        format.html { redirect_to dynasties_probe_url(@ruler.dynasty_id), notice: 'Ruler was successfully updated.' }
         format.json { render :show, status: :ok, location: @ruler }
       else
         format.html { render :edit }
@@ -61,7 +62,7 @@ class RulersController < ApplicationController
   def destroy
     @ruler.destroy
     respond_to do |format|
-      format.html { redirect_to rulers_url, notice: 'Ruler was successfully destroyed.' }
+      format.html { redirect_to  dynasties_probe_url(@ruler.dynasty_id) , notice: 'Ruler was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -12,25 +12,26 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :c_name %>
+    <%= form.label t("cities.city_name") %>
     <%= form.text_field :c_name, id: :city_c_name %>
   </div>
 
   <div class="field">
-    <%= form.label :ruler_id %>
-    <%= form.text_field :ruler_id, id: :city_ruler_id %>
+    <%= form.hidden_field :ruler_id, id: :city_ruler_id  %>
   </div>
 
   <div class="field">
-    <%= form.label :dynasty_id %>
-    <%= form.text_field :dynasty_id, id: :city_dynasty_id %>
+    <%= form.hidden_field :dynasty_id, id: :city_dynasty_id  %>
   </div>
   <div class="field">
-    <%= form.label :c_image %>
-    <%= form.file_field :c_image %>
+    <label for="file-input">
+      <span class="glyphicon glyphicon-camera"></span>
+    </label>
+    <%= form.label t("dynasties.image") %>
+    <%= form.file_field :c_image ,id:"file-input" %>
    </div>
 
   <div class="actions">
-    <%= form.submit %>
+       <%= form.submit t("dynasties.create")%>
   </div>
 <% end %>

@@ -1,3 +1,31 @@
+div.add { 
+  float: left;
+  padding: 25px;
+  overflow: hidden; 
+    height: 320px; 
+    width: 500px;
+
+}
+
+div.pics { 
+  float: left;
+  padding: 30px;
+  overflow: scroll;
+    height: 350px; 
+    width: 300px;
+
+}
+
+
+div.pics-double { 
+  float: left;
+  padding: 30px;
+    overflow: scroll;
+    height: 490px; 
+    width: 230px;
+
+}
+
 body {
   background-color: #fff;
   color: #333;

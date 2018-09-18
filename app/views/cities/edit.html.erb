@@ -1,6 +1,10 @@
-<h1>Editing City</h1>
+<div class="container">
+<h1><%= t("cities.city_edit")%></h1>
 
 <%= render 'form', city: @city %>
 
-<%= link_to 'Show', @city %> |
-<%= link_to 'Back', cities_path %>
+
+<%= link_to t("dynasties.back"), ruler_url(@city.ruler_id) %>
+
+</div>
+

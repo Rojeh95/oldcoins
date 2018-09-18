@@ -1,7 +1,10 @@
-<h1>Editing Dynasty</h1>
+<div class="container">
+<h1><%= t("dynasties.dynasty_edit")%></h1>
 
 <%= render 'form', dynasty: @dynasty %>
 
 
-<%= link_to 'Show', @dynasty %> |
-<%= link_to 'Back', dynasties_path %>
+<%= link_to t("dynasties.show"), @dynasty %> |
+<%= link_to t("dynasties.back"), dynasties_path %> |
+<%= link_to t("dynasties.del"), @dynasty, method: :delete, data: { confirm: 'Are you sure?' } %> 
+</div>

@@ -12,17 +12,19 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :dy_name%>
+    <%= form.label  t("dynasties.name")%>
     <%= form.text_field :dy_name, id: :dynasty_dy_name %>
     
   </div>
   <div class="field">
-    <%= form.label :dy_image %>
-    <%= form.file_field :dy_image %>
-   
-      </div>
+   <label for="file-input">
+     <span class="glyphicon glyphicon-camera"></span>
+   </label>
+    <%= form.label t("dynasties.image") %>
+    <%= form.file_field :dy_image, id:"file-input" %>  
+  </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit t("dynasties.create")%>
   </div>
 <% end %>

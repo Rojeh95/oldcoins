@@ -12,20 +12,23 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :ru_name %>
-    <%= form.text_field :ru_name, id: :ruler_ru_name %>
+    <%= form.label t("dynasties.rulers_name") %><br>
+    <%= form.text_area :ru_name, id: :ruler_ru_name %>
   </div>
 
   <div class="field">
-    <%= form.label :dynasty_id %>
-    <%= form.text_field :dynasty_id, id: :ruler_dynasty_id %>
+   
+    <%= form.hidden_field :dynasty_id, id: :ruler_dynasty_id %>
   </div>
-    <div class="field">
-    <%= form.label :ru_image %>
+  <div class="field">
+    <label for="file-input">
+      <span class="glyphicon glyphicon-camera"></span>
+    </label>
+    <%= form.label t("dynasties.image") %>
     <%= form.file_field :ru_image %>
-   </div>
+  </div>
 
   <div class="actions">
-    <%= form.submit %>
+   <%= form.submit t("dynasties.create")%>
   </div>
 <% end %>

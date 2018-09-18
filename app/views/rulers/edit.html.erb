@@ -1,6 +1,7 @@
-<h1>Editing Ruler</h1>
+<div class="container">
+<h1><%= t("rulers.ruler_edit") %></h1>
 
 <%= render 'form', ruler: @ruler %>
 
-<%= link_to 'Show', @ruler %> |
-<%= link_to 'Back', rulers_path %>
+<%= link_to t("dynasties.back"), dynasties_probe_path(@ruler.dynasty_id) %>
+</div>
